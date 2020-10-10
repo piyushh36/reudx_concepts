@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { useStateValue } from './DataLayer';
+import Login from './Login/Login'
 
 function App() {
+  // const[user, setUser] = useState(null);
+  const[state, dispatch] = useStateValue();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3> {state.user ? `The user logged in is ${state.user}` : `No user is logged in`} </h3>
+
+      <Login  />
     </div>
   );
 }
